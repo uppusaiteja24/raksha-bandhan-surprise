@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For My Akka ❤️</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #ffe6ef, #fff5e6);
+    color: #5c3040;
+    overflow-x: hidden;
+}
+
+.page {
+    display: none;
+    min-height: 100vh;
+    padding: 25px;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.page.active {
+    display: flex;
+}
+
+.card {
+    width: 100%;
+    max-width: 650px;
+    padding: 35px 25px;
+    background: rgba(255,255,255,0.92);
+    border-radius: 30px;
+    box-shadow: 0 10px 35px rgba(0,0,0,0.12);
+}
+
+.big {
+    font-size: 75px;
+}
+
+h1 {
+    color: #d6336c;
+    font-size: 38px;
+}
+
+h2 {
+    color: #d6336c;
+    font-size: 30px;
+}
+
+p {
+    font-size: 18px;
+    line-height: 1.7;
+}
+
+button {
+    border: none;
+    border-radius: 30px;
+    padding: 14px 28px;
+    margin: 12px;
+    font-size: 17px;
+    cursor: pointer;
+}
+
+.yes {
+    background: #d6336c;
+    color: white;
+}
+
+.no {
+    background: #eeeeee;
+    color: #444;
+    position: relative;
+}
+
+.next {
+    background: #d6336c;
+    color: white;
+}
+
+#noMessage {
+    color: #d6336c;
+    font-weight: bold;
+    min-height: 30px;
+}
+
+.photos {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+.photos img {
+    width: 100%;
+    height: 210px;
+    object-fit: cover;
+    border-radius: 18px;
+}
+
+.gift {
+    font-size: 100px;
+    cursor: pointer;
+    animation: bounce 1s infinite;
+}
+
+#giftMessage {
+    display: none;
+}
+
+.heart {
+    font-size: 45px;
+    margin: 20px;
+}
+
+.floating {
+    position: fixed;
+    bottom: -40px;
+    font-size: 25px;
+    animation: rise 5s linear forwards;
+    pointer-events: none;
+}
+
+@keyframes bounce {
+    0%,100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-15px);
+    }
+}
+
+@keyframes rise {
+    from {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    to {
+        transform: translateY(-110vh);
+        opacity: 0;
+    }
+}
+
+@media(max-width:600px) {
+    h1 {
+        font-size: 30px;
+    }
+
+    h2 {
+        font-size: 25px;
+    }
+
+    p {
+        font-size: 16px;
+    }
+
+    .photos {
+        grid-template-columns: 1fr;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- PAGE 1 -->
+<section class="page active" id="page1">
+    <div class="card">
+
+        <div class="big">🎀</div>
+
+        <h1>Hey Akka! ❤️</h1>
+
+        <p>
+            I have made something special
+            just for you. 🥰
+            <br><br>
+            Are you ready?
+        </p>
+
+        <button class="yes" onclick="nextPage(2)">
+            Start Surprise 💖
+        </button>
+
+    </div>
+</section>
+
+
+<!-- PAGE 2 -->
+<section class="page" id="page2">
+    <div class="card">
+
+        <div class="big">🥰</div>
+
+        <h2>Akka, Are You Ready?</h2>
+
+        <p>
+            Do you want to see your
+            Raksha Bandhan surprise? 🎁
+        </p>
+
+        <button class="yes" onclick="nextPage(3)">
+            YES ❤️
+        </button>
+
+        <button class="no" id="noButton" onclick="noClicked()">
+            NO 😜
+        </button>
+
+        <div id="noMessage"></div>
+
+    </div>
+</section>
+
+
+<!-- PAGE 3 -->
+<section class="page" id="page3">
+    <div class="card">
+
+        <div class="big">📸</div>
+
+        <h2>Our Memories ❤️</h2>
+
+        <p>
+            A few memories that are special to me. 🥹
+        </p>
+
+        <div class="photos">
+
+            <img src="photo1.jpg" alt="Memory 1">
+            <img src="photo2.jpg" alt="Memory 2">
+            <img src="photo3.jpg" alt="Memory 3">
+            <img src="photo4.jpg" alt="Memory 4">
+
+        </div>
+
+        <button class="next" onclick="nextPage(4)">
+            Next ❤️
+        </button>
+
+    </div>
+</section>
+
+
+<!-- PAGE 4 -->
+<section class="page" id="page4">
+    <div class="card">
+
+        <div class="big">💌</div>
+
+        <h2>A Message For My Akka</h2>
+
+        <p>
+            Akka ❤️
+            <br><br>
+
+            We may fight, tease each other,
+            and annoy each other sometimes 😂.
+            <br><br>
+
+            But no matter what happens,
+            you will always be very special to me.
+            🥹❤️
+            <br><br>
+
+            Thank you for all the memories,
+            laughs and moments we have shared.
+            <br><br>
+
+            I am really lucky to have you
+            as my Akka. ❤️
+            <br><br>
+
+            Always keep smiling and stay happy. 🌸
+        </p>
+
+        <div class="heart">🫶❤️</div>
+
+        <button class="next" onclick="nextPage(5)">
+            One More Surprise 🎁
+        </button>
+
+    </div>
+</section>
+
+
+<!-- PAGE 5 -->
+<section class="page" id="page5">
+    <div class="card">
+
+        <h2>A Gift For You 🎁</h2>
+
+        <p>
+            Tap the gift to open it...
+        </p>
+
+        <div class="gift" onclick="openGift()">
+            🎁
+        </div>
+
+        <div id="giftMessage">
+
+            <h2>Surprise! 🥹❤️</h2>
+
+            <p>
+                The best gift isn't something
+                that can be wrapped.
+                <br><br>
+
+                It is having a wonderful Akka
+                like you in my life. ❤️
+                <br><br>
+
+                Happy Raksha Bandhan, Akka! 🎀
+                <br><br>
+
+                — Sai ❤️
+            </p>
+
+            <div class="heart">
+                ❤️🎀❤️
+            </div>
+
+            <button class="next" onclick="nextPage(6)">
+                Final Surprise ✨
+            </button>
+
+        </div>
+
+    </div>
+</section>
+
+
+<!-- PAGE 6 -->
+<section class="page" id="page6">
+    <div class="card">
+
+        <div class="big">🎉</div>
+
+        <h1>Happy Raksha Bandhan! ❤️</h1>
+
+        <h2>To My Amazing Akka 🎀</h2>
+
+        <p>
+            No matter how much we grow up,
+            you will always be my Akka.
+            ❤️
+            <br><br>
+
+            Keep smiling.
+            Keep shining.
+            And always be happy. 🌸
+            <br><br>
+
+            With lots of love,
+            <br>
+            <b>Your Brother Sai ❤️</b>
+        </p>
+
+        <div class="heart">
+            🫶 ❤️ 🎀 ❤️ 🫶
+        </div>
+
+    </div>
+</section>
+
+
+<script>
+
+function nextPage(number) {
+
+    document.querySelectorAll(".page").forEach(function(page) {
+        page.classList.remove("active");
+    });
+
+    document.getElementById("page" + number)
+        .classList.add("active");
+
+    window.scrollTo(0, 0);
+}
+
+
+/* NO BUTTON */
+
+let noCount = 0;
+
+function noClicked() {
+
+    noCount++;
+
+    const button = document.getElementById("noButton");
+    const message = document.getElementById("noMessage");
+
+    const messages = [
+        "Are you sure, Akka? 🥺",
+        "Hehe! Try again! 😂",
+        "You can't escape the surprise! 😜",
+        "Akkaaa! Please say YES! ❤️",
+        "The NO button is getting scared! 😂",
+        "Okay... but I'm still waiting for YES! 🥹"
+    ];
+
+    message.innerText =
+        messages[Math.min(noCount - 1, messages.length - 1)];
+
+    const x = Math.random() * 240 - 120;
+    const y = Math.random() * 200 - 100;
+
+    button.style.transform =
+        "translate(" + x + "px, " + y + "px)";
+}
+
+
+/* GIFT */
+
+function openGift() {
+
+    document.getElementById("giftMessage")
+        .style.display = "block";
+
+    createHearts();
+}
+
+
+/* HEARTS */
+
+function createHearts() {
+
+    for(let i = 0; i < 35; i++) {
+
+        setTimeout(function() {
+
+            const heart =
+                document.createElement("div");
+
+            heart.className = "floating";
+
+            const symbols =
+                ["❤️","💖","💕","🌸","✨","🎀"];
+
+            heart.innerText =
+                symbols[Math.floor(Math.random() * symbols.length)];
+
+            heart.style.left =
+                Math.random() * 100 + "vw";
+
+            document.body.appendChild(heart);
+
+            setTimeout(function() {
+                heart.remove();
+            }, 5000);
+
+        }, i * 100);
+    }
+}
+
+</script>
+
+</body>
+</html>
